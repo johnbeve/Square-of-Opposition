@@ -1,0 +1,36 @@
+============================== prooftrans ============================
+Prover9 (32) version Dec-2007, Dec 2007.
+Process 11256 was started by John on John,
+Thu Aug 17 21:11:45 2017
+The command was "/cygdrive/c/Program Files (x86)/Prover9-Mace4/bin-win32/prover9".
+============================== end of head ===========================
+
+============================== end of input ==========================
+
+============================== PROOF =================================
+
+% -------- Comments from original proof --------
+% Proof 1 at 0.01 (+ 0.00) seconds.
+% Length of proof is 16.
+% Level of proof is 5.
+% Maximum clause weight is 9.
+% Given clauses 15.
+
+2 (all x partOf(x,x)) # label(non_clause).  [assumption].
+4 (all x all y (overlaps(x,y) <-> (exists z (partOf(z,x) & partOf(z,y))))) # label(non_clause).  [assumption].
+5 (all x all y (discreteFrom(x,y) <-> -overlaps(x,y))) # label(non_clause).  [assumption].
+7 (all x all y (overlapsComplement(x,y) <-> (exists z (partOf(z,x) & -partOf(z,y))))) # label(non_clause).  [assumption].
+8 overlapsComplement(a,b) # label(non_clause) # label(goal).  [goal].
+9 overlaps(x,y) | -partOf(z,x) | -partOf(z,y).  [clausify(4)].
+12 -discreteFrom(x,y) | -overlaps(x,y).  [clausify(5)].
+17 -discreteFrom(x,y) | -partOf(z,x) | -partOf(z,y).  [resolve(12,b,9,a)].
+18 discreteFrom(a,b).  [assumption].
+22 partOf(x,x).  [clausify(2)].
+26 overlapsComplement(x,y) | -partOf(z,x) | partOf(z,y).  [clausify(7)].
+27 -overlapsComplement(a,b).  [deny(8)].
+32 -partOf(x,a) | -partOf(x,b).  [resolve(17,a,18,a)].
+35 overlapsComplement(x,y) | partOf(x,y).  [resolve(26,b,22,a)].
+45 -partOf(a,b).  [ur(32,a,22,a)].
+48 $F.  [resolve(35,a,27,a),unit_del(a,45)].
+
+============================== end of proof ==========================

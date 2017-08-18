@@ -1,0 +1,32 @@
+============================== prooftrans ============================
+Prover9 (32) version Dec-2007, Dec 2007.
+Process 11360 was started by John on John,
+Thu Aug 17 21:07:53 2017
+The command was "/cygdrive/c/Program Files (x86)/Prover9-Mace4/bin-win32/prover9".
+============================== end of head ===========================
+
+============================== end of input ==========================
+
+============================== PROOF =================================
+
+% -------- Comments from original proof --------
+% Proof 1 at 0.00 (+ 0.01) seconds.
+% Length of proof is 12.
+% Level of proof is 4.
+% Maximum clause weight is 6.
+% Given clauses 7.
+
+2 (all x partOf(x,x)) # label(non_clause).  [assumption].
+4 (all x all y (overlaps(x,y) <-> (exists z (partOf(z,x) & partOf(z,y))))) # label(non_clause).  [assumption].
+5 (all x all y (discreteFrom(x,y) <-> -overlaps(x,y))) # label(non_clause).  [assumption].
+6 -partOf(a,b) # label(non_clause) # label(goal).  [goal].
+7 overlaps(x,y) | -partOf(z,x) | -partOf(z,y).  [clausify(4)].
+10 -discreteFrom(x,y) | -overlaps(x,y).  [clausify(5)].
+12 -discreteFrom(x,y) | -partOf(z,x) | -partOf(z,y).  [resolve(10,b,7,a)].
+13 discreteFrom(a,b).  [assumption].
+17 partOf(x,x).  [clausify(2)].
+19 partOf(a,b).  [deny(6)].
+22 -partOf(x,a) | -partOf(x,b).  [resolve(12,a,13,a)].
+29 $F.  [hyper(22,a,17,a,b,19,a)].
+
+============================== end of proof ==========================

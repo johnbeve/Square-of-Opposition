@@ -1,0 +1,31 @@
+============================== prooftrans ============================
+Prover9 (32) version Dec-2007, Dec 2007.
+Process 8732 was started by John on John,
+Thu Aug 17 21:17:10 2017
+The command was "/cygdrive/c/Program Files (x86)/Prover9-Mace4/bin-win32/prover9".
+============================== end of head ===========================
+
+============================== end of input ==========================
+
+============================== PROOF =================================
+
+% -------- Comments from original proof --------
+% Proof 1 at 0.01 (+ 0.01) seconds.
+% Length of proof is 11.
+% Level of proof is 3.
+% Maximum clause weight is 9.
+% Given clauses 12.
+
+3 (all x all y all z (partOf(x,y) & partOf(y,z) -> partOf(x,z))) # label(non_clause).  [assumption].
+7 (all x all y (overlapsComplement(x,y) <-> (exists z (partOf(z,x) & -partOf(z,y))))) # label(non_clause).  [assumption].
+8 -overlapsComplement(a,b) # label(non_clause) # label(goal).  [goal].
+18 -overlapsComplement(x,y) | partOf(f3(x,y),x).  [clausify(7)].
+19 -overlapsComplement(x,y) | -partOf(f3(x,y),y).  [clausify(7)].
+20 overlapsComplement(a,b).  [deny(8)].
+26 -partOf(x,y) | -partOf(y,z) | partOf(x,z).  [clausify(3)].
+27 partOf(a,b).  [assumption].
+34 partOf(f3(a,b),a).  [resolve(20,a,18,a)].
+35 -partOf(f3(a,b),b).  [resolve(20,a,19,a)].
+75 $F.  [ur(26,b,27,a,c,35,a),unit_del(a,34)].
+
+============================== end of proof ==========================

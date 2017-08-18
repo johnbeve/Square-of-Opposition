@@ -1,0 +1,27 @@
+interpretation( 2, [number = 1,seconds = 0], [
+    function(a, [0]),
+    function(b, [0]),
+    function(f1(_,_), [
+        0,0,
+        0,0]),
+    function(f2(_,_), [
+        0,1,
+        1,1]),
+    function(f3(_,_), [
+        0,0,
+        1,0]),
+    relation(discreteFrom(_,_), [
+        0,0,
+        0,0]),
+    relation(overlaps(_,_), [
+        1,1,
+        1,1]),
+    relation(overlapsComplement(_,_), [
+        0,0,
+        1,0]),
+    relation(partOf(_,_), [
+        1,1,
+        0,1]),
+    relation(underlaps(_,_), [
+        1,1,
+        1,1])]).

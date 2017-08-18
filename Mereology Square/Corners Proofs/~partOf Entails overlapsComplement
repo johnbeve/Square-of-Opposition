@@ -1,0 +1,28 @@
+============================== prooftrans ============================
+Prover9 (32) version Dec-2007, Dec 2007.
+Process 10304 was started by John on John,
+Thu Aug 17 21:17:28 2017
+The command was "/cygdrive/c/Program Files (x86)/Prover9-Mace4/bin-win32/prover9".
+============================== end of head ===========================
+
+============================== end of input ==========================
+
+============================== PROOF =================================
+
+% -------- Comments from original proof --------
+% Proof 1 at 0.01 (+ 0.00) seconds.
+% Length of proof is 8.
+% Level of proof is 2.
+% Maximum clause weight is 9.
+% Given clauses 8.
+
+2 (all x partOf(x,x)) # label(non_clause).  [assumption].
+7 (all x all y (overlapsComplement(x,y) <-> (exists z (partOf(z,x) & -partOf(z,y))))) # label(non_clause).  [assumption].
+8 overlapsComplement(a,b) # label(non_clause) # label(goal).  [goal].
+21 partOf(x,x).  [clausify(2)].
+25 overlapsComplement(x,y) | -partOf(z,x) | partOf(z,y).  [clausify(7)].
+26 -partOf(a,b).  [assumption].
+27 -overlapsComplement(a,b).  [deny(8)].
+35 $F.  [ur(25,a,27,a,c,26,a),unit_del(a,21)].
+
+============================== end of proof ==========================

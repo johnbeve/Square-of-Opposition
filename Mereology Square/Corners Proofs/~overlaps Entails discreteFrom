@@ -1,0 +1,26 @@
+============================== prooftrans ============================
+Prover9 (32) version Dec-2007, Dec 2007.
+Process 9772 was started by John on John,
+Thu Aug 17 21:16:23 2017
+The command was "/cygdrive/c/Program Files (x86)/Prover9-Mace4/bin-win32/prover9".
+============================== end of head ===========================
+
+============================== end of input ==========================
+
+============================== PROOF =================================
+
+% -------- Comments from original proof --------
+% Proof 1 at 0.00 (+ 0.01) seconds.
+% Length of proof is 6.
+% Level of proof is 2.
+% Maximum clause weight is 6.
+% Given clauses 10.
+
+5 (all x all y (discreteFrom(x,y) <-> -overlaps(x,y))) # label(non_clause).  [assumption].
+8 discreteFrom(a,b) # label(non_clause) # label(goal).  [goal].
+22 discreteFrom(x,y) | overlaps(x,y).  [clausify(5)].
+23 -overlaps(a,b).  [assumption].
+24 -discreteFrom(a,b).  [deny(8)].
+35 $F.  [resolve(24,a,22,a),unit_del(a,23)].
+
+============================== end of proof ==========================
