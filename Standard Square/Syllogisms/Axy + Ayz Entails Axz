@@ -1,0 +1,30 @@
+============================== prooftrans ============================
+Prover9 (32) version Dec-2007, Dec 2007.
+Process 12384 was started by John on John,
+Thu Aug 17 21:46:27 2017
+The command was "/cygdrive/c/Program Files (x86)/Prover9-Mace4/bin-win32/prover9".
+============================== end of head ===========================
+
+============================== end of input ==========================
+
+============================== PROOF =================================
+
+% -------- Comments from original proof --------
+% Proof 1 at 0.01 (+ 0.01) seconds.
+% Length of proof is 10.
+% Level of proof is 4.
+% Maximum clause weight is 0.
+% Given clauses 0.
+
+1 (all x (A(x) -> B(x))) # label(non_clause).  [assumption].
+2 (all x (B(x) -> C(x))) # label(non_clause).  [assumption].
+3 (all x (A(x) -> C(x))) # label(non_clause) # label(goal).  [goal].
+4 A(c1).  [deny(3)].
+5 -A(x) | B(x).  [clausify(1)].
+6 B(c1).  [resolve(4,a,5,a)].
+7 -B(x) | C(x).  [clausify(2)].
+8 C(c1).  [resolve(6,a,7,a)].
+9 -C(c1).  [deny(3)].
+10 $F.  [resolve(8,a,9,a)].
+
+============================== end of proof ==========================
