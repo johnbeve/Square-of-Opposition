@@ -1,0 +1,15 @@
+%*************************
+%   partOf Axioms        *
+%*************************
+
+all x all y((partOf(x,y) & partOf(y,x))->x=y).
+all x (partOf(x,x)). 
+all x all y all z((partOf(x,y) & partOf(y,z))-> partOf(x,z)).
+
+%*************************
+%   partOf Definitions   *
+%*************************
+
+all x all y (overlaps(x,y) <-> exists z(partOf(z,x) & partOf(z,y))). 
+all x all y (discreteFrom(x,y) <-> -(overlaps(x,y))).
+all x all y (overlapsComplement(x,y) <-> exists z(partOf(z,x) & -partOf(z,y))).
