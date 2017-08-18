@@ -1,0 +1,8 @@
+%*******************************
+% Square of Opposition Axioms  *
+%*******************************
+
+all x (A(x)->B(x)).
+all x (A(x)->-B(x)).
+exists x (A(x) & B(x)).
+exists x (A(x) & -B(x)).
