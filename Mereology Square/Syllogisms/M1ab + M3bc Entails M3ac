@@ -1,0 +1,41 @@
+============================== prooftrans ============================
+Prover9 (32) version Dec-2007, Dec 2007.
+Process 11108 was started by John on John,
+Thu Aug 17 21:23:16 2017
+The command was "/cygdrive/c/Program Files (x86)/Prover9-Mace4/bin-win32/prover9".
+============================== end of head ===========================
+
+============================== end of input ==========================
+
+============================== PROOF =================================
+
+% -------- Comments from original proof --------
+% Proof 1 at 0.00 (+ 0.00) seconds.
+% Length of proof is 21.
+% Level of proof is 5.
+% Maximum clause weight is 9.
+% Given clauses 24.
+
+3 (all x all y all z (partOf(x,y) & partOf(y,z) -> partOf(x,z))) # label(non_clause).  [assumption].
+4 (all x all y (overlaps(x,y) <-> (exists z (partOf(z,x) & partOf(z,y))))) # label(non_clause).  [assumption].
+5 (all x all y (discreteFrom(x,y) <-> -overlaps(x,y))) # label(non_clause).  [assumption].
+8 discreteFrom(a,c) # label(non_clause) # label(goal).  [goal].
+9 overlaps(x,y) | -partOf(z,x) | -partOf(z,y).  [clausify(4)].
+10 -overlaps(x,y) | partOf(f1(x,y),x).  [clausify(4)].
+11 -overlaps(x,y) | partOf(f1(x,y),y).  [clausify(4)].
+12 -discreteFrom(x,y) | -overlaps(x,y).  [clausify(5)].
+13 discreteFrom(x,y) | overlaps(x,y).  [clausify(5)].
+22 -partOf(x,y) | -partOf(y,z) | partOf(x,z).  [clausify(3)].
+23 partOf(a,b).  [assumption].
+24 discreteFrom(b,c).  [assumption].
+25 -discreteFrom(a,c).  [deny(8)].
+28 -discreteFrom(x,y) | -partOf(z,x) | -partOf(z,y).  [resolve(12,b,9,a)].
+29 discreteFrom(x,y) | partOf(f1(x,y),x).  [resolve(13,b,10,a)].
+30 discreteFrom(x,y) | partOf(f1(x,y),y).  [resolve(13,b,11,a)].
+38 -partOf(x,a) | partOf(x,b).  [resolve(23,a,22,b)].
+57 partOf(f1(a,c),a).  [resolve(29,a,25,a)].
+58 partOf(f1(a,c),c).  [resolve(30,a,25,a)].
+81 partOf(f1(a,c),b).  [resolve(57,a,38,a)].
+111 $F.  [ur(28,a,24,a,c,58,a),unit_del(a,81)].
+
+============================== end of proof ==========================
