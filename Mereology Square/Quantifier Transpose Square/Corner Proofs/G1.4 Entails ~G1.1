@@ -1,0 +1,33 @@
+============================== prooftrans ============================
+Prover9 (32) version Dec-2007, Dec 2007.
+Process 5980 was started by John on John,
+Tue Aug 22 11:40:05 2017
+The command was "/cygdrive/c/Program Files (x86)/Prover9-Mace4/bin-win32/prover9".
+============================== end of head ===========================
+
+============================== end of input ==========================
+
+============================== PROOF =================================
+
+% -------- Comments from original proof --------
+% Proof 1 at 0.00 (+ 0.01) seconds.
+% Length of proof is 13.
+% Level of proof is 4.
+% Maximum clause weight is 9.
+% Given clauses 17.
+
+3 (all x all y all z (partOf(x,y) & partOf(y,z) -> partOf(x,z))) # label(non_clause).  [assumption].
+8 (all x all y (overlapsComplement(x,y) <-> (exists z (partOf(z,x) & -partOf(z,y))))) # label(non_clause).  [assumption].
+10 (all x exists y overlapsComplement(x,y)) # label(non_clause).  [assumption].
+11 -(exists x all y partOf(x,y)) # label(non_clause) # label(goal).  [goal].
+15 -overlapsComplement(x,y) | partOf(f3(x,y),x).  [clausify(8)].
+16 -overlapsComplement(x,y) | -partOf(f3(x,y),y).  [clausify(8)].
+17 overlapsComplement(x,f4(x)).  [clausify(10)].
+20 -partOf(x,y) | -partOf(y,z) | partOf(x,z).  [clausify(3)].
+30 partOf(c2,x).  [deny(11)].
+33 partOf(f3(x,f4(x)),x).  [resolve(17,a,15,a)].
+34 -partOf(f3(x,f4(x)),f4(x)).  [resolve(17,a,16,a)].
+58 -partOf(f3(x,f4(x)),c2).  [ur(20,b,30,a,c,34,a)].
+59 $F.  [resolve(58,a,33,a)].
+
+============================== end of proof ==========================
