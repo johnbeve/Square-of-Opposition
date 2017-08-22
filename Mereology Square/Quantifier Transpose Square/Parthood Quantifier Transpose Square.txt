@@ -1,0 +1,47 @@
+%*************************
+%   partOf Axioms        *
+%*************************
+
+all x all y((partOf(x,y) & partOf(y,x))->x=y).
+%A1
+
+all x (partOf(x,x)). 
+%A2
+
+all x all y all z((partOf(x,y) & partOf(y,z))-> partOf(x,z)).
+%A3
+
+all x all y (properPartOf(x,y) -> exists z(properPartOf(z,y) & -overlaps(z,x))).
+%A4
+
+%*************************
+%   partOf Definitions   *
+%*************************
+
+all x all y (properPartOf(x,y) <-> (partOf(x,y) & -(x=y))).
+%D1
+
+all x all y (overlaps(x,y) <-> exists z(partOf(z,x) & partOf(z,y))). 
+%D2
+
+all x all y (discreteFrom(x,y) <-> -(overlaps(x,y))).
+%D3
+
+all x all y (overlapsComplement(x,y) <-> exists z(partOf(z,x) & -partOf(z,y))).
+%D4
+
+%*************************
+%   Tests                *
+%*************************
+
+%exists x all y (partOf(x,y)).
+%G1.1 
+
+%exists x all y (overlaps(x,y)).
+%G1.2
+
+%all x exists y (discreteFrom(x,y)). 
+%G1.3
+
+%all x exists y (overlapsComplement(x,y)).
+%G1.4
